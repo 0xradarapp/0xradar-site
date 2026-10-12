@@ -1,0 +1,6 @@
+name = "0xradar-site"
+compatibility_date = "2026-10-12"
+
+# Static-asset-only deployment (no Worker script): serves files in ./public
+[assets]
+directory = "./public"
