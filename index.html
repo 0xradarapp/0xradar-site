@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>0xRadarApp — Security Researcher</title>
+<meta name="description" content="0xRadarApp — independent security researcher. Applied cryptography, MPC &amp; threshold-signature protocols. Responsible disclosure." />
+<meta name="robots" content="index, follow" />
+<!-- Open Graph (social preview) -->
+<meta property="og:title" content="0xRadarApp — Security Researcher" />
+<meta property="og:description" content="Applied cryptography, MPC &amp; threshold-signature security. Responsible disclosure." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://0xradar.app/" />
+<style>
+  :root {
+    --bg: #07090d;
+    --fg: #d7e2ea;
+    --muted: #7c8a99;
+    --accent: #35e08a;
+    --accent-dim: #1b6b48;
+    --card: #0d1117;
+    --line: #1c2733;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { height: 100%; }
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+    display: flex; align-items: center; justify-content: center;
+    min-height: 100vh; padding: 24px; overflow: hidden; position: relative;
+  }
+  /* radar sweep backdrop */
+  .radar {
+    position: fixed; inset: 50% auto auto 50%; width: 900px; height: 900px;
+    transform: translate(-50%, -50%); pointer-events: none; opacity: .14; z-index: 0;
+  }
+  .radar::before, .radar::after {
+    content: ""; position: absolute; inset: 0; border-radius: 50%;
+    border: 1px solid var(--accent-dim);
+  }
+  .radar::after { inset: 25%; }
+  .ring { position: absolute; inset: 37.5%; border-radius: 50%; border: 1px solid var(--accent-dim); }
+  .sweep {
+    position: absolute; inset: 0; border-radius: 50%;
+    background: conic-gradient(from 0deg, rgba(53,224,138,.45), rgba(53,224,138,0) 60deg);
+    animation: spin 5s linear infinite;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  @media (prefers-reduced-motion: reduce) { .sweep { animation: none; } }
+
+  main {
+    position: relative; z-index: 1; width: 100%; max-width: 560px;
+    background: linear-gradient(180deg, rgba(13,17,23,.92), rgba(7,9,13,.92));
+    border: 1px solid var(--line); border-radius: 14px;
+    padding: 40px 36px; backdrop-filter: blur(3px);
+    box-shadow: 0 0 60px rgba(53,224,138,.06);
+  }
+  .brand { display: flex; align-items: baseline; gap: 10px; }
+  h1 { font-size: 26px; letter-spacing: .5px; }
+  h1 .hex { color: var(--accent); }
+  .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent);
+         box-shadow: 0 0 10px var(--accent); align-self: center; animation: pulse 2s ease-in-out infinite; }
+  @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: .3; } }
+  .tagline { color: var(--muted); margin: 14px 0 4px; font-size: 14px; line-height: 1.6; }
+  .focus { color: var(--fg); font-size: 13px; line-height: 1.7; margin-top: 14px;
+           border-left: 2px solid var(--accent-dim); padding-left: 14px; }
+  .focus b { color: var(--accent); font-weight: 600; }
+
+  .links { margin-top: 28px; display: grid; gap: 10px; }
+  a.link {
+    display: flex; align-items: center; gap: 12px; text-decoration: none;
+    color: var(--fg); border: 1px solid var(--line); border-radius: 10px;
+    padding: 12px 14px; font-size: 14px; transition: border-color .15s, transform .15s, background .15s;
+  }
+  a.link:hover { border-color: var(--accent); transform: translateX(3px); background: rgba(53,224,138,.04); }
+  a.link .ico { width: 18px; height: 18px; flex: 0 0 18px; fill: var(--accent); }
+  a.link .label { color: var(--muted); }
+  a.link .val { margin-left: auto; color: var(--fg); }
+
+  footer { margin-top: 26px; color: var(--muted); font-size: 12px; line-height: 1.7; }
+  footer .sep { color: var(--line); }
+  .cursor { color: var(--accent); animation: blink 1.1s step-end infinite; }
+  @keyframes blink { 50% { opacity: 0; } }
+</style>
+</head>
+<body>
+  <div class="radar" aria-hidden="true">
+    <div class="ring"></div>
+    <div class="sweep"></div>
+  </div>
+
+  <main>
+    <div class="brand">
+      <span class="dot"></span>
+      <h1><span class="hex">0x</span>RadarApp</h1>
+    </div>
+
+    <p class="tagline">Independent security researcher<span class="cursor">_</span></p>
+
+    <p class="focus">
+      Applied cryptography &amp; protocol security. Private, good-faith <b>responsible disclosure</b>.
+    </p>
+
+    <div class="links">
+      <a class="link" href="https://github.com/0xradarapp" rel="me noopener" target="_blank">
+        <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5A11.5 11.5 0 0 0 .5 12a11.5 11.5 0 0 0 7.86 10.92c.57.1.78-.25.78-.55v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.2 1.77 1.2 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.2-3.1-.12-.3-.52-1.48.11-3.08 0 0 .98-.31 3.2 1.18a11 11 0 0 1 5.82 0c2.22-1.5 3.2-1.18 3.2-1.18.63 1.6.23 2.78.11 3.08.75.81 1.2 1.84 1.2 3.1 0 4.43-2.7 5.4-5.26 5.69.41.36.78 1.06.78 2.14v3.17c0 .3.2.66.79.55A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5Z"/></svg>
+        <span class="label">GitHub</span><span class="val">@0xradarapp</span>
+      </a>
+
+      <a class="link" href="https://x.com/0xRadarApp" rel="me noopener" target="_blank">
+        <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2H21.5l-7.5 8.57L22.5 22h-6.9l-5.4-7.06L3.98 22H.72l8.02-9.17L1.5 2h7.08l4.88 6.45L18.244 2Zm-1.21 18h1.81L7.04 3.9H5.1L17.034 20Z"/></svg>
+        <span class="label">X / Twitter</span><span class="val">@0xRadarApp</span>
+      </a>
+
+      <a class="link" href="https://medium.com/@0xradarapp" rel="me noopener" target="_blank">
+        <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M13.54 12a6.8 6.8 0 0 1-6.77 6.82A6.8 6.8 0 0 1 0 12a6.8 6.8 0 0 1 6.77-6.82A6.8 6.8 0 0 1 13.54 12Zm7.42 0c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42S20.96 8.46 20.96 12ZM24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12Z"/></svg>
+        <span class="label">Medium</span><span class="val">@0xradarapp</span>
+      </a>
+
+      <a class="link" href="mailto:0xradarapp@gmail.com">
+        <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 5.5A1.5 1.5 0 0 1 3.5 4h17A1.5 1.5 0 0 1 22 5.5v13a1.5 1.5 0 0 1-1.5 1.5h-17A1.5 1.5 0 0 1 2 18.5v-13Zm2.3.5 7.7 5.78L19.7 6H4.3ZM20 7.6l-7.4 5.55a1 1 0 0 1-1.2 0L4 7.6V18h16V7.6Z"/></svg>
+        <span class="label">Email</span><span class="val">0xradarapp@gmail.com</span>
+      </a>
+    </div>
+
+    <footer>
+      Security disclosures welcome via email.
+      <span class="sep">·</span> PGP on request.
+      <span class="sep">·</span> No unsolicited marketing.
+    </footer>
+  </main>
+</body>
+</html>
